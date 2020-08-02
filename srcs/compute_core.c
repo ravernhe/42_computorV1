@@ -33,10 +33,14 @@ void compute_equation(char *equation)
 {
   t_poly  poly;
   t_poly  poly2;
+	t_poly  poly_reduced;
+	int			degree;
 
   init_poly(&poly);
   init_poly(&poly2);
+	init_poly(&poly_reduced);
   get_term(&poly, &poly2, equation, 0, 1, 0);
-  // printf("Poly1 -> c : %d, exp0 : %d, exp1 : %d, exp2 : %d\n", poly.c, poly.exp0, poly.exp1, poly.exp2);
-  // printf("Poly2 -> c : %d, exp0 : %d, exp1 : %d, exp2 : %d\n", poly2.c, poly2.exp0, poly2.exp1, poly2.exp2);
+	reduce_equation(&poly, &poly2, &poly_reduced);
+	degree = get_degree(&poly_reduced);
+	get_solution(&poly_reduced);
 }

@@ -29,6 +29,9 @@ SRC_FILE = 	main.c\
 						compute_core.c\
 						first_member.c\
 						second_member.c\
+						reduce_equation.c\
+						get_degree.c\
+						get_solution.c\
 
 OBJ      = $(addprefix $(OBJ_PATH),$(OBJ_FILE))
 

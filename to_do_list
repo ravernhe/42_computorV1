@@ -1,0 +1,19 @@
+/* Computer V1 */
+
+To do list :
+
+Parser :
+  -> Vérifier argument envoyé
+  -> Calculer et séparer les membres de l'équation
+
+Préparation :
+  -> Réduire l'équation
+  -> Calculer le degré
+
+Solver :
+  -> Solution exposant 0
+  -> Solution exposant 1
+  -> Solution exposant 2
+
+Affichage :
+  -> Affichage adapter à l'équation

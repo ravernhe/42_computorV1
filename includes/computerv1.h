@@ -24,11 +24,14 @@ typedef struct	s_poly
 	int exp2;
 }								t_poly;
 
-void get_term(t_poly *poly, t_poly *poly2, char *equation, int i, int sign, int val);
-void get_term2(t_poly *poly2, char *equation, int i, int sign, int val);
-void apply_sign(t_poly *poly, t_poly *poly2, char *equation, int i, int val);
-void apply_sign2(t_poly *poly2, char *equation, int i, int val);
+void	get_term(t_poly *poly, t_poly *poly2, char *equation, int i, int sign, int val);
+void	get_term2(t_poly *poly2, char *equation, int i, int sign, int val);
+void	apply_sign(t_poly *poly, t_poly *poly2, char *equation, int i, int val);
+void	apply_sign2(t_poly *poly2, char *equation, int i, int val);
 void	compute_equation(char *equation);
+void	reduce_equation(t_poly *poly, t_poly *poly2, t_poly *poly_reduced);
+void	get_degree(t_poly *poly_reduced);
+void	get_solution(t_poly *poly_reduced, int degree);
 int		skip(char *str, int i);
 
 #endif

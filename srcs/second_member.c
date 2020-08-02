@@ -29,7 +29,10 @@ void apply_sign2(t_poly *poly2, char *equation, int i, int val)
 void get_expose2(int expose, t_poly *poly2, int val)
 {
   if (expose > 2)
-    exit(1); //Print Error exposant
+  {
+    ft_putstr("Polynomian degree strictly greater than 2.\n");
+    exit(1);
+  }
   if (expose == 0)
     poly2->exp0 += val;
   if (expose == 1)
@@ -49,6 +52,8 @@ void get_term2(t_poly *poly2, char *equation, int i, int sign, int val)
   {
     i += 2;
     expose = ft_atoi(equation + i);
+    if (equation[i - 1] != '^')
+      expose = 1;
     get_expose2(expose, poly2, val);
   }
   else if (expose == -1 && (equation[i + 2] == '+' ||\

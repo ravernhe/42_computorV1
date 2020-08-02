@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_degree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ravernhe <ravernhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,43 +12,21 @@
 
 #include "../includes/computerv1.h"
 
-int   ft_isoperand(char c)
+int get_degree(t_poly *poly_reduced)
 {
-  return (c == '+' || c == '-' || c == '*' || c == '^' ||\
-    c == ' ' || c == 'X' || c == '=' || ft_isdigit(c));
-}
-
-int   char_in_equation(char *str)
-{
-  int i;
-
-  i = 0;
-  while (str[i])
+  if (poly_reduced->exp2 != 0)
   {
-    if (!(ft_isoperand(str[i])))
-      return (0);
-    i++;
+    ft_putstr("Polynomial degree: 2\n");
+    return (2);
   }
-  return (1);
-}
-
-char  *verify_argument(char *str)
-{
-  if (!(char_in_equation(str)))
+  else if (poly_reduced->exp1 != 0)
   {
-    ft_putstr("Wrong char in equation\n");
-    exit (0);
+    ft_putstr("Polynomial degree: 1\n");
+    return (1);
   }
-  //add test
-  return (str);
-}
-
-int main(int ac, char **av)
-{
-  char *str;
-
-  if (ac != 2)
+  else
+  {
+    ft_putstr("Polynomial degree: 0\n");
     return (0);
-  str = verify_argument(av[1]);
-  compute_equation(av[1]);
+  }
 }
