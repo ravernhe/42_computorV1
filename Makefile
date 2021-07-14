@@ -12,51 +12,31 @@
 
 NAME = computor
 
-CC = clang
+CC = g++
 CFLAG = -Wall -Wextra
 
 SRC_PATH	= ./srcs/
 INC_PATH	= ./includes/
 OBJ_PATH	= ./obj/
 
-LFT_PATH		= ./libft/
-LIBFT_FLAG	= -L$(LFT_PATH) -lft
-LIBFT				= $(LFT_PATH)libft.a
-INCLIBFT  	= $(LFT_PATH)includes
-
-OBJ_FILE = $(SRC_FILE:.c=.o)
-SRC_FILE = 	main.c\
-						compute_core.c\
-						first_member.c\
-						second_member.c\
-						reduce_equation.c\
-						get_degree.c\
-						get_solution.c\
+OBJ_FILE = $(SRC_FILE:.cpp=.o)
+SRC_FILE = 	main.cpp\
 
 OBJ      = $(addprefix $(OBJ_PATH),$(OBJ_FILE))
 
-all: libft $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-		@$(CC) $(CFLAG) -lm $(LIBFT_FLAG) -o $@ $^
+		@$(CC) $(CFLAG) -o $@ $^
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c Makefile includes/computerv1.h
+$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp Makefile includes/computerv1.hpp
 		@mkdir -p $(OBJ_PATH)
-		@$(CC) $(CFLAG) -I $(INC_PATH) -I $(INCLIBFT) -o $@ -c $<
-
-libft: $(LIBFT)
-
-$(LIBFT):   $(LFT_PATH)
-		@make -C $(LFT_PATH)
-
-sdl: $(LIBSDL)
+		@$(CC) $(CFLAG) -I $(INC_PATH) -o $@ -c $<
 
 clean:
-	@make -C $(LFT_PATH) clean
 	@rm -rf $(OBJ_PATH)
 
 fclean: clean
-	@make -C $(LFT_PATH) fclean
 	@rm -rf $(NAME)
 
 re: fclean all

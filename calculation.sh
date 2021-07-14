@@ -1,0 +1,16 @@
+g++ srcs/main.cpp
+echo "Base operation"
+./a.out "123 + 23"
+./a.out "123 - 23"
+./a.out "123 - 23 + 23" #FAUX UNE FOIS || Verif
+./a.out "42 * 2"
+./a.out "42 / 2"
+./a.out "10 + 42 * 2"
+./a.out "10 - 42 * 2"
+./a.out "10 + 42 / 2"
+./a.out "10 - 42 / 2"
+echo "\nParenthesis operation"
+./a.out "(10 + 42) * 2"
+./a.out "(10 - 42) * 2"
+./a.out "(10 + 42) / 2"
+./a.out "(10 - 42) / 2"

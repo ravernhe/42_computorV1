@@ -1,4 +1,3 @@
-make
 echo "One Member Fix"
 echo "Compute First Member"
 ./computor "5"

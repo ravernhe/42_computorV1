@@ -1,0 +1,8 @@
+1 + 1 - 7 ok
+7 * 3 - 2 * 0 - 2 + 2 * 3 ok
+7 * 3 - 2 * 10 - 2 + 2 * 3 ok
+8 * 2 / 5 pas ok div
+2 + (7 - 3) pas ok parenthese
+2 * (7 * 3) pas ok parenthese
+2 * 2X^1 || 2 * 2X  pas ok X
+2 * (2X + 3X^2) pas ok X^2
